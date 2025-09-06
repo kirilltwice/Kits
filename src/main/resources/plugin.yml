@@ -1,0 +1,53 @@
+name: Kits
+main: dev.twice.kits.KitsPlugin
+
+authors: [ Twice ]
+
+version: '1.0-SNAPSHOT'
+api-version: '1.21'
+
+commands:
+  kit:
+    description: Get a kit or use kit commands
+    usage: /<command> <kit> [player] | /<command> edit <kit> | /<command> preview <kit>
+    permission: kits.use
+  kits:
+    description: Manage kits and view available kits
+    usage: /<command> [create|delete|reload|help] [args]
+    permission: kits.use
+
+permissions:
+  kits.use:
+    description: Basic kit usage
+    default: true
+  kits.kit.*:
+    description: Access to all kits
+    default: false
+  kits.give:
+    description: Give kits to other players
+    default: op
+  kits.edit:
+    description: Edit kits
+    default: op
+  kits.preview:
+    description: Preview kits
+    default: op
+  kits.help:
+    description: View help
+    default: true
+  kits.admin:
+    description: All admin permissions
+    default: op
+    children:
+      - kits.admin.create
+      - kits.admin.delete
+      - kits.admin.reload
+  kits.admin.create:
+    description: Create new kits
+    default: op
+  kits.admin.delete:
+    description: Delete kits
+    default: op
+  kits.admin.reload:
+    description: Reload plugin configuration
+    default: op
